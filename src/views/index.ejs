@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>Estimaciones</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,user-scalable=no,minimum-scale=1.0,maximum-scale=1.0" />
+  <link type="text/css" rel="stylesheet" href="css/main.css" />
+  <link type="text/css" rel="stylesheet" href="css/animate.css" />
+</head>
+
+<body>
+
+<section id="ingresarNombre" class="ingresarNombre">
+  <input type="text" id="inputNombre">
+  <button class="boton" onclick="aceptarNombre()">OK</button>
+</section>
+
+<section id="seccionPuntuar" class="seccionPuntuar" style="display: none;">
+
+  <span>Votar: </span>
+  <section class="botonesVotar">
+    <button class="boton" onclick="votar('1')">1</button>
+    <button class="boton" onclick="votar('2')">2</button>
+    <button class="boton" onclick="votar('3')">3</button>
+    <button class="boton" onclick="votar('5')">5</button>
+    <button class="boton" onclick="votar('8')">8</button>
+  </section>
+  <span>Acciones: </span>
+  <section class="botonesAcciones">
+    <button class="boton" onclick="mostrarVotos()" id="botonMostrarVotos">Mostrar Votos</button>
+    <button class="boton" onclick="resetear()">Resetear</button>
+  </section>
+  <span>Participantes: </span>
+  <div class="seccionPuntuar">
+    <table class="customTable">
+      <thead>
+        <tr>
+          <th>Votante</th>
+          <th>Puntaje</th>
+        </tr>
+      </thead>
+      <tbody id="participantesBody">
+        <tr>
+          <td>a</td>
+          <td>b</td>
+        </tr>
+      </tbody>
+      </table>
+  </div>
+</section>
+
+
+</body>
+
+</html>
+
+<script src="js/socket.js"></script>
+<script src="js/logica.js"></script>

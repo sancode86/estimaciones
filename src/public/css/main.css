@@ -1,0 +1,63 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap');
+
+* {
+	font-family: "Nunito", sans-serif;
+	font-optical-sizing: auto;
+	font-style: normal;
+}
+
+body {
+	margin: 0;
+	background-color: #000;
+	color: #fff;
+	overscroll-behavior: none;
+}
+
+.ingresarNombre {
+	margin: auto;
+	display: flex;
+	width: 100%;
+	place-content: center;
+}
+
+.seccionPuntuar {
+	margin: auto;
+	display: flex;
+	width: 100%;
+	place-content: center;
+	text-align: center;
+}
+
+table.customTable {
+	min-width: 500px;
+	background-color: #FFFFFF;
+	border-collapse: collapse;
+	border-width: 2px;
+	border-color: #B1B1B1;
+	border-style: solid;
+	color: #888888;
+}
+
+table.customTable td,
+table.customTable th {
+	border-width: 2px;
+	border-color: #B1B1B1;
+	border-style: solid;
+	padding: 15px;
+}
+
+table.customTable thead {
+	background-color: #2D2D2D;
+}
+
+.botonesVotar {
+	display: flex;
+	gap: 5px;
+	width: 500px;
+	margin: auto;
+}
+
+.boton:hover {
+	cursor: pointer;
+	opacity: 0.60;
+}
