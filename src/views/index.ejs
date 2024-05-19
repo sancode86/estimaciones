@@ -12,13 +12,20 @@
 <body>
 
   <section id="ingresarNombre" class="ingresarNombre">
-    <input placeholder="Ingresa Nombre" type="text" id="inputNombre" class="inputText" onkeydown="teclaEnter()">
-    <button class="button" onclick="aceptarNombre()">OK</button>
+    <h1 class="titulo animate__animated animate__fadeIn">Estimaciones</h1>
+    <div class="ingresarNombreFlex">
+      <input placeholder="Ingresar nombre" type="text" id="inputNombre" class="inputText" onkeydown="teclaEnter()">
+      <button class="button" onclick="aceptarNombre()">OK</button>
+    </div>
+    <div class="version">
+      <span>Version 1.0</span>
+    </div>
   </section>
 
   <section id="seccionPuntuar" class="seccionPuntuar" style="display: none;">
     <section>
-      <span>Votar: </span>
+      <br>
+      <span>Votar</span>
       <section class="botonesVotar">
         <button class="button" onclick="votar('1')">1</button>
         <button class="button" onclick="votar('2')">2</button>
@@ -26,16 +33,15 @@
         <button class="button" onclick="votar('5')">5</button>
         <button class="button" onclick="votar('8')">8</button>
       </section>
-      <span>Acciones: </span>
+      <br>
+      <span>Acciones</span>
       <section class="botonesAcciones">
         <button class="button" onclick="mostrarVotos()" id="botonMostrarVotos">Mostrar Votos</button>
         <button class="button" onclick="resetear()">Resetear</button>
       </section>
 
       <section class="contenedorPuntuarYResultados">
-
-        <div class="seccionPuntuar">
-          <span>Participantes: </span>
+        <div class="seccionPuntuarTabla" id="tabla">
           <table class="customTable">
             <thead>
               <tr>
@@ -51,9 +57,9 @@
             </tbody>
           </table>
         </div>
-        <div>
+       
           <div id="resultados" class="resultados"></div>
-        </div>
+        
 
       </section>
     </section>
@@ -67,5 +73,6 @@
 
 </html>
 
+<script src="js/arrastrar.js"></script>
 <script src="js/socket.js"></script>
 <script src="js/logica.js"></script>

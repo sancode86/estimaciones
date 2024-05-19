@@ -5,6 +5,11 @@ var votante = {
   id: null,
 };
 
+console.log("😃😃😃😃😃😃😃😃😃😃😃😃😃");
+console.log("Fuaa...");
+console.log("😃😃😃😃😃😃😃😃😃😃😃😃😃");
+
+
 var puntajesVisibles = false;
 var votantes = [];
 var promedio;
@@ -65,7 +70,6 @@ function mostrarVotantes() {
 
   };
 
-
   participantesDiv.innerHTML = html;
   botonMostrarVotosToggle()
 }
@@ -124,23 +128,35 @@ function mostrarResultados() {
   const valoresVotados = promedio?.valoresVotados || 0;
 
   for (const [key, value] of Object.entries(valoresVotados)) {
-    htmlValoresVotados += `<p>${value} votaron => <strong>${key}</strong> <br></p>`;
+    htmlValoresVotados += `<p>${value} votaron <strong>${key}</strong> <br></p>`;
   }
-
 
   if (!puntajesVisibles) {
     resultados.innerHTML = '';
   } else {
     resultados.innerHTML = `
-    <span>Resultado: </span>
-    <p>
-    Promedio: ${promedio?.promedio || 0}
-    </p>
-    <p>
-    Votaron: ${promedio?.cantidadVotantes}/${promedio?.cantidadParticipantes}
-    </p>  
-    <p>Cantidades:</p>
-    ${htmlValoresVotados}
+    <section class="resultadoContenedor animate__animated animate__fadeIn">
+      <div class="contenedorNumeroPromedio">
+
+        <p class="textoPromedio">
+        Promedio 
+        </p>
+        
+        <span class="numeroPromedio">
+        ${promedio?.promedio || 0}
+        </span>
+
+      </div>
+
+      <div>
+        <p>
+        Votaron: ${promedio?.cantidadVotantes}/${promedio?.cantidadParticipantes}
+        </p>
+        <div>
+        ${htmlValoresVotados}
+        </div>
+      </div>
+</section>
     `;
   }
 

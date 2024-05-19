@@ -14,6 +14,26 @@ body {
 }
 
 .ingresarNombre {
+	text-align: center;
+	margin: auto;
+	display: grid;
+	width: 100%;
+	place-content: center;
+}
+
+.titulo {
+	font-size: 32px;
+}
+
+.version {
+	display: flex;
+	place-content: center;
+	gap: 15px;
+	margin-top: 20px;
+	color: #5c5c5c;
+}
+
+.ingresarNombreFlex {
 	margin: auto;
 	display: flex;
 	width: 100%;
@@ -30,10 +50,11 @@ body {
 }
 
 table.customTable {
+	border-radius: 4px;
 	min-width: 500px;
 	background-color: #FFFFFF;
 	border-collapse: collapse;
-	border-width: 2px;
+	border-width: 1px;
 	border-color: #B1B1B1;
 	border-style: solid;
 	color: #888888;
@@ -41,10 +62,10 @@ table.customTable {
 
 table.customTable td,
 table.customTable th {
-	border-width: 2px;
+	border-width: 1px;
 	border-color: #B1B1B1;
 	border-style: solid;
-	padding: 15px;
+	padding: 10px;
 }
 
 table.customTable thead {
@@ -54,78 +75,119 @@ table.customTable thead {
 .botonesVotar {
 	display: flex;
 	gap: 5px;
-	width: 500px;
 	margin: auto;
 	justify-content: center;
 }
 
 .button {
-  align-items: center;
-  appearance: none;
-  background-color: #FCFCFD;
-  border-radius: 4px;
-  border-width: 0;
-  box-shadow: rgba(45, 35, 66, 0.4) 0 2px 4px,rgba(45, 35, 66, 0.3) 0 7px 13px -3px,#D6D6E7 0 -3px 0 inset;
-  box-sizing: border-box;
-  /* color: #36395A; */
-  cursor: pointer;
-  display: inline-flex;
-  /* font-family: "JetBrains Mono",monospace; */
-  height: 48px;
-  justify-content: center;
-  line-height: 1;
-  list-style: none;
-  overflow: hidden;
-  padding-left: 16px;
-  padding-right: 16px;
-  position: relative;
-  text-align: left;
-  text-decoration: none;
-  transition: box-shadow .15s,transform .15s;
-  user-select: none;
-  -webkit-user-select: none;
-  touch-action: manipulation;
-  white-space: nowrap;
-  will-change: box-shadow,transform;
-  font-size: 18px;
+	align-items: center;
+	appearance: none;
+	background-color: #FCFCFD;
+	border-radius: 4px;
+	border-width: 0;
+	box-shadow: rgba(45, 35, 66, 0.4) 0 2px 4px, rgba(45, 35, 66, 0.3) 0 7px 13px -3px, #D6D6E7 0 -3px 0 inset;
+	box-sizing: border-box;
+	cursor: pointer;
+	display: inline-flex;
+	height: 48px;
+	justify-content: center;
+	line-height: 1;
+	list-style: none;
+	overflow: hidden;
+	padding-left: 16px;
+	padding-right: 16px;
+	position: relative;
+	text-align: left;
+	text-decoration: none;
+	transition: box-shadow .15s, transform .15s;
+	user-select: none;
+	-webkit-user-select: none;
+	touch-action: manipulation;
+	white-space: nowrap;
+	will-change: box-shadow, transform;
+	font-size: 18px;
 	transition: .5s all;
 }
 
 .button:focus {
-  box-shadow: #D6D6E7 0 0 0 1.5px inset, rgba(45, 35, 66, 0.4) 0 2px 4px, rgba(45, 35, 66, 0.3) 0 7px 13px -3px, #D6D6E7 0 -3px 0 inset;
+	box-shadow: #D6D6E7 0 0 0 1.5px inset, rgba(45, 35, 66, 0.4) 0 2px 4px, rgba(45, 35, 66, 0.3) 0 7px 13px -3px, #D6D6E7 0 -3px 0 inset;
 }
 
 .button:hover {
-  box-shadow: rgba(45, 35, 66, 0.4) 0 4px 8px, rgba(45, 35, 66, 0.3) 0 7px 13px -3px, #D6D6E7 0 -3px 0 inset;
-  transform: translateY(-2px);
+	box-shadow: rgba(45, 35, 66, 0.4) 0 4px 8px, rgba(45, 35, 66, 0.3) 0 7px 13px -3px, #D6D6E7 0 -3px 0 inset;
+	transform: translateY(-2px);
 }
 
 .button:active {
-  box-shadow: #D6D6E7 0 3px 7px inset;
-  transform: translateY(2px);
+	box-shadow: #D6D6E7 0 3px 7px inset;
+	transform: translateY(2px);
 }
 
-
 .inputText {
-  display: block;
-  margin: 0;
-  padding: 5px 15px;
-  color: black;
-  min-width: 300px;
-  font-family: inherit;
-  font-size: 18px;
-  font-weight: inherit;
-  line-height: 0;
-  border: none;
-  border-radius: 4px;
-  transition: box-shadow .2s;
+	display: block;
+	margin: 0;
+	padding: 5px 15px;
+	color: black;
+	min-width: 300px;
+	font-family: inherit;
+	font-size: 18px;
+	font-weight: inherit;
+	line-height: 0;
+	border: none;
+	border-radius: 4px;
+	transition: box-shadow .2s;
 }
 
 .inputText::placeholder {
-  color: #B0BEC5;
+	color: #B0BEC5;
 }
 
 .inputText:focus {
-  outline: none;
+	outline: none;
 	box-shadow: 1px 5px 4.4px #1b1b1b;
+}
+
+.resultadoContenedor {
+	background-color: #303030;
+	padding: 10px;
+	text-align: center;
+	width: 300px;
+	height: fit-content;
+	margin: auto;
+	border-radius: 4px;
+	box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+
+.numeroPromedio {
+	color: white;
+	font-size: 75px;
+	font-weight: bold;
+	text-shadow: rgba(0, 0, 0, 0.80) 0px 7px 15px;
+}
+
+.contenedorNumeroPromedio {
+	border: 1px solid white;
+	border-radius: 4px;
+	padding: 14px;
+	background-color: #292929;
+}
+
+.textoPromedio {
+	padding: 0px;
+	margin: 0px;
+}
+
+.seccionPuntuarTabla {
+	box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+	margin: auto;
+	display: grid;
+	place-content: center;
+	text-align: center;
+	position: absolute;
+	cursor: grab;
+}
+
+.resultados {
+	cursor: grab;
+	position: absolute;
 }
