@@ -17,10 +17,7 @@ var botonMostrarVotos = document.getElementById("botonMostrarVotos");
 
 focusInputNombre();
 
-
-socket.on("connectionID", function (connectionID) {
-  votante.id = connectionID;
-});
+votante.id = Date.now() + Math.random();
 
 socket.on("mostrarVotos", function (mostrarVotos) {
   puntajesVisibles = mostrarVotos;

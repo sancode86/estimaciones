@@ -32,7 +32,7 @@ var mostrarVotos = false;
 
 io.on("connection", (socket) => {
 
-  io.emit("connectionID", `${socket.id}`);
+  // io.emit("connectionID", `${socket.id}`);
 
   socket.on("disconnect", () => {
     const index = votantes.findIndex(x => x.id === socket.id);
@@ -57,7 +57,11 @@ io.on("connection", (socket) => {
 
   socket.on("votar", (votante) => {
     const index = votantes.findIndex(x => x?.id === votante?.id);
-    votantes[index].puntaje = votante?.puntaje || null;
+    console.log("votante", votante);
+    if (index != -1) {
+      votantes[index].puntaje = votante?.puntaje || null;
+    }
+
     const data = {
       votantes: votantes,
       puntajesVisibles: mostrarVotos,
