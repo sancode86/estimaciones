@@ -41,9 +41,9 @@ function aceptarNombre() {
 }
 
 socket.on("votantesActuales", function (todosLosVotantes) {
-  votantes = todosLosVotantes.votantes;
-  puntajesVisibles = todosLosVotantes.puntajesVisibles;
-  promedio = todosLosVotantes.promedio;
+  votantes = todosLosVotantes?.votantes;
+  puntajesVisibles = todosLosVotantes?.puntajesVisibles;
+  promedio = todosLosVotantes?.promedio;
   mostrarVotantes();
 });
 
@@ -53,10 +53,10 @@ function mostrarVotantes() {
   let html = '';
 
   for (let i = 0; i < votantes?.length; i++) {
-    if (votantes[i].nombre && votantes[i].id) {
+    if (votantes[i]?.nombre && votantes[i]?.id) {
       html += `
       <tr>
-        <td>${votantes[i].nombre}</td>
+        <td>${votantes[i]?.nombre}</td>
         
         <td>${estadoDelPuntaje(votantes[i])}</td>
       </tr>
@@ -74,16 +74,16 @@ function estadoDelPuntaje(votante) {
 
   let html = '';
 
-  if (votante.puntaje == null) {
-    html = '';
+  if (votante?.puntaje == null) {
+    html = '➖';
   }
 
-  if (votante.puntaje && !puntajesVisibles) {
+  if (votante?.puntaje && !puntajesVisibles) {
     html = '✅';
   }
 
-  if (votante.puntaje && puntajesVisibles) {
-    html = votante.puntaje;
+  if (votante?.puntaje && puntajesVisibles) {
+    html = votante?.puntaje;
   }
 
   return html;
@@ -118,18 +118,29 @@ function teclaEnter() {
 }
 
 function mostrarResultados() {
+  let htmlValoresVotados = '';
+
   const resultados = document.getElementById("resultados");
+  const valoresVotados = promedio?.valoresVotados || 0;
+
+  for (const [key, value] of Object.entries(valoresVotados)) {
+    htmlValoresVotados += `<p>${value} votaron => <strong>${key}</strong> <br></p>`;
+  }
+
 
   if (!puntajesVisibles) {
     resultados.innerHTML = '';
   } else {
     resultados.innerHTML = `
+    <span>Resultado: </span>
     <p>
-    Promedio: ${promedio.promedio}
+    Promedio: ${promedio?.promedio || 0}
     </p>
     <p>
-    Votaron: ${promedio.cantidadVotantes}/${promedio.cantidadParticipantes}
+    Votaron: ${promedio?.cantidadVotantes}/${promedio?.cantidadParticipantes}
     </p>  
+    <p>Cantidades:</p>
+    ${htmlValoresVotados}
     `;
   }
 

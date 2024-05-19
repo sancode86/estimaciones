@@ -56,8 +56,8 @@ io.on("connection", (socket) => {
   });
 
   socket.on("votar", (votante) => {
-    const index = votantes.findIndex(x => x.id === votante.id);
-    votantes[index].puntaje = votante.puntaje;
+    const index = votantes.findIndex(x => x?.id === votante?.id);
+    votantes[index].puntaje = votante?.puntaje || null;
     const data = {
       votantes: votantes,
       puntajesVisibles: mostrarVotos,
@@ -72,14 +72,18 @@ io.on("connection", (socket) => {
   });
 
   socket.on("resetear", () => {
-    for (let i = 0; i < votantes.length; i++) {
+    mostrarVotos = false;
+
+    for (let i = 0; i < votantes?.length; i++) {
       votantes[i].puntaje = null;
     };
+
     const data = {
       votantes: votantes,
       puntajesVisibles: mostrarVotos,
-      promedio: calcularPromedio(votantes)
+      promedio: calcularPromedio(votantes) || 0
     }
+
     io.emit("votantesActuales", data);
   });
 

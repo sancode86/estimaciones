@@ -12,47 +12,54 @@
 <body>
 
   <section id="ingresarNombre" class="ingresarNombre">
-    <input type="text" id="inputNombre" onkeydown="teclaEnter()">
-    <button class="boton" onclick="aceptarNombre()">OK</button>
+    <input placeholder="Ingresa Nombre" type="text" id="inputNombre" class="inputText" onkeydown="teclaEnter()">
+    <button class="button" onclick="aceptarNombre()">OK</button>
   </section>
 
   <section id="seccionPuntuar" class="seccionPuntuar" style="display: none;">
     <section>
       <span>Votar: </span>
       <section class="botonesVotar">
-        <button class="boton" onclick="votar('1')">1</button>
-        <button class="boton" onclick="votar('2')">2</button>
-        <button class="boton" onclick="votar('3')">3</button>
-        <button class="boton" onclick="votar('5')">5</button>
-        <button class="boton" onclick="votar('8')">8</button>
+        <button class="button" onclick="votar('1')">1</button>
+        <button class="button" onclick="votar('2')">2</button>
+        <button class="button" onclick="votar('3')">3</button>
+        <button class="button" onclick="votar('5')">5</button>
+        <button class="button" onclick="votar('8')">8</button>
       </section>
       <span>Acciones: </span>
       <section class="botonesAcciones">
-        <button class="boton" onclick="mostrarVotos()" id="botonMostrarVotos">Mostrar Votos</button>
-        <button class="boton" onclick="resetear()">Resetear</button>
+        <button class="button" onclick="mostrarVotos()" id="botonMostrarVotos">Mostrar Votos</button>
+        <button class="button" onclick="resetear()">Resetear</button>
       </section>
-      <span>Participantes: </span>
-      <div class="seccionPuntuar">
-        <table class="customTable">
-          <thead>
-            <tr>
-              <th>Votante</th>
-              <th>Puntaje</th>
-            </tr>
-          </thead>
-          <tbody id="participantesBody">
-            <tr>
-              <td>a</td>
-              <td>b</td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
+
+      <section class="contenedorPuntuarYResultados">
+
+        <div class="seccionPuntuar">
+          <span>Participantes: </span>
+          <table class="customTable">
+            <thead>
+              <tr>
+                <th>Votante</th>
+                <th>Puntaje</th>
+              </tr>
+            </thead>
+            <tbody id="participantesBody">
+              <tr>
+                <td>a</td>
+                <td>b</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div>
+          <div id="resultados" class="resultados"></div>
+        </div>
+
+      </section>
     </section>
-    <section>
-      <span>Resultado: </span>
-      <div id="resultados"></div>
-    </section>
+
+
+
   </section>
 
 
