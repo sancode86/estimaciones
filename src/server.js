@@ -4,8 +4,10 @@ const cors = require("cors");
 const path = require("path");
 const { createServer } = require("http");
 const { Server } = require("socket.io");
+const { calcularPromedio } = require("./app/scripts");
 
-app.set("port", process.env.PORT || 4141);
+const port = 4141;
+app.set("port", port);
 app.set("views", path.join(__dirname, "views"));
 app.set("view engine", "ejs");
 require("./app/routes")(app);
@@ -37,7 +39,8 @@ io.on("connection", (socket) => {
     votantes.splice(index, 1);
     const data = {
       votantes: votantes,
-      puntajesVisibles: mostrarVotos
+      puntajesVisibles: mostrarVotos,
+      promedio: calcularPromedio(votantes)
     }
     io.emit("votantesActuales", data);
   });
@@ -46,7 +49,8 @@ io.on("connection", (socket) => {
     votantes.push(nuevoVotante);
     const data = {
       votantes: votantes,
-      puntajesVisibles: mostrarVotos
+      puntajesVisibles: mostrarVotos,
+      promedio: calcularPromedio(votantes)
     }
     io.emit("votantesActuales", data);
   });
@@ -56,7 +60,8 @@ io.on("connection", (socket) => {
     votantes[index].puntaje = votante.puntaje;
     const data = {
       votantes: votantes,
-      puntajesVisibles: mostrarVotos
+      puntajesVisibles: mostrarVotos,
+      promedio: calcularPromedio(votantes)
     }
     io.emit("votantesActuales", data);
   });
@@ -72,13 +77,14 @@ io.on("connection", (socket) => {
     };
     const data = {
       votantes: votantes,
-      puntajesVisibles: mostrarVotos
+      puntajesVisibles: mostrarVotos,
+      promedio: calcularPromedio(votantes)
     }
     io.emit("votantesActuales", data);
   });
 
 });
 
-httpServer.listen(4141, () => {
+httpServer.listen(port, () => {
   console.log("Server up 🚀");
 });

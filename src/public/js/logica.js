@@ -7,7 +7,11 @@ var votante = {
 
 var puntajesVisibles = false;
 var votantes = [];
+var promedio;
 var botonMostrarVotos = document.getElementById("botonMostrarVotos");
+
+focusInputNombre();
+
 
 socket.on("connectionID", function (connectionID) {
   votante.id = connectionID;
@@ -39,6 +43,7 @@ function aceptarNombre() {
 socket.on("votantesActuales", function (todosLosVotantes) {
   votantes = todosLosVotantes.votantes;
   puntajesVisibles = todosLosVotantes.puntajesVisibles;
+  promedio = todosLosVotantes.promedio;
   mostrarVotantes();
 });
 
@@ -69,15 +74,15 @@ function estadoDelPuntaje(votante) {
 
   let html = '';
 
-  if(votante.puntaje == null) {
+  if (votante.puntaje == null) {
     html = '';
   }
 
-  if(votante.puntaje && !puntajesVisibles) {
+  if (votante.puntaje && !puntajesVisibles) {
     html = '✅';
   }
 
-  if(votante.puntaje && puntajesVisibles) {
+  if (votante.puntaje && puntajesVisibles) {
     html = votante.puntaje;
   }
 
@@ -99,4 +104,33 @@ function resetear() {
 
 function botonMostrarVotosToggle() {
   botonMostrarVotos.innerHTML = puntajesVisibles ? "Ocultar Votos" : "Mostrar Votos";
+  mostrarResultados();
+}
+
+function focusInputNombre() {
+  document.getElementById("inputNombre").focus();
+}
+
+function teclaEnter() {
+  if (event.key === 'Enter') {
+    aceptarNombre();
+  }
+}
+
+function mostrarResultados() {
+  const resultados = document.getElementById("resultados");
+
+  if (!puntajesVisibles) {
+    resultados.innerHTML = '';
+  } else {
+    resultados.innerHTML = `
+    <p>
+    Promedio: ${promedio.promedio}
+    </p>
+    <p>
+    Votaron: ${promedio.cantidadVotantes}/${promedio.cantidadParticipantes}
+    </p>  
+    `;
+  }
+
 }
